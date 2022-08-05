@@ -1,0 +1,324 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://StreetSegment.gd" type="Script" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.345635
+height = 0.578251
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.335
+mid_height = 0.561
+
+[sub_resource type="PrismMesh" id=3]
+size = Vector3( 0.5, 0.5, 0.25 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 8, 16.1 )
+
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.0
+bottom_radius = 0.485
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.25, 0.6, 0.25 )
+
+[sub_resource type="CylinderMesh" id=7]
+top_radius = 0.5
+bottom_radius = 0.4
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.482353, 0.388235, 0.388235, 1 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 1 )
+spawn_interval = 2.5
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3.55193, 5 )
+
+[node name="Player" type="KinematicBody" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6008, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.594366, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/MeshInstance"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -0.377737, -0.183774 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StreetSegment" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+mesh = SubResource( 4 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="Tree" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -2 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree2" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 2.07008 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree3" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -5.34461 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree4" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -2 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree7" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 6 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree8" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 6 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree8"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 8 )
+
+[node name="Tree5" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 2.07008 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree6" type="MeshInstance" parent="StreetSegment"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -5.34461 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment/Tree6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StreetSegment2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+mesh = SubResource( 4 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="Tree" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -2 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree2" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 2.07008 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree3" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -5.34461 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree4" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -2 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree7" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 6 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree8" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 6 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree5" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 2.07008 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree6" type="MeshInstance" parent="StreetSegment2"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -5.34461 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment2/Tree6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StreetSegment3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36 )
+mesh = SubResource( 4 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="Tree" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -2 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree2" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 2.07008 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree3" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, -5.34461 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree4" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -2 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree7" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, -3.67509, 1.25398, 6 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree8" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 6 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree5" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, 2.07008 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Tree6" type="MeshInstance" parent="StreetSegment3"]
+transform = Transform( 0.843635, 0, -0.536917, 0, 1, 0, 0.536917, 0, 0.843635, 3.67369, 1.25398, -5.34461 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StreetSegment3/Tree6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949517, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpawnPoint" type="Position3D" parent="." groups=["spawn_points"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39914, 0, -21 )
+
+[node name="SpawnPoint2" type="Position3D" parent="." groups=["spawn_points"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46983, 0, -21 )
+
+[node name="SpawnPoint3" type="Position3D" parent="." groups=["spawn_points"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0396595, 0, -21 )
