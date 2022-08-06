@@ -2,7 +2,7 @@ extends Spatial
 
 signal spawned_pickable(pickable)
 
-var pickable_scene = preload('res://Pickable.tscn')
+var pickable_scene = preload('res://pickables/Pickable.tscn')
 
 export (float) var speed := 5.0 setget _set_speed
 export (float) var spawn_interval = 4.0
@@ -28,8 +28,7 @@ func spawn(pos: Position3D) -> void:
 	add_child(new_pickable)
 	new_pickable.transform.origin = pos.transform.origin
 	new_pickable.speed = speed
-	var cal = randi() % 100
-	new_pickable.calories = cal
+	new_pickable.randomize_object()
 	emit_signal('spawned_pickable', new_pickable)
 
 func _set_speed(new_value: float) -> void:
