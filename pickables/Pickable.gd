@@ -3,15 +3,15 @@ extends Area
 signal out_screen
 export (float) var speed := 0.0
 
-export (int) var calories := 10
+#export (int) var calories := 10
 
 var effects := {}
 
 onready var options = [
-	{"object": $Position3D/cake, "calories": 100, "effects": {}},
-	{"object": $Position3D/coke, "calories": 80, "effects": {"gas": 100}},
-	{"object": $Position3D/hotdog, "calories": 60, "effects": {}},
-	{"object": $Position3D/pizza, "calories": 30, "effects": {}}
+	{"object": $Position3D/cake, "effects": {"calories": 100}},
+	{"object": $Position3D/coke, "effects": {"calories": 80, "gas": 100}},
+	{"object": $Position3D/hotdog, "effects": {"calories": 60}},
+	{"object": $Position3D/pizza, "effects": {"calories": 30}}
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +27,7 @@ func randomize_object() -> void:
 	
 	options[opt]["object"].visible = true
 	effects = options[opt]["effects"]
-	calories = options[opt]["calories"]
+#	calories = options[opt]["calories"]
 	
 	pass
 
